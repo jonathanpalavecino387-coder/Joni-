@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta para mi Piojita 💌</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: radial-gradient(circle at top left, #ffd6e0, #ffc1cc, #ffb3c6);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Comic Sans MS', cursive;
+        color: #3a3a3a;
+    }
+
+    .carta {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 0 25px rgba(255, 192, 203, 0.6);
+        width: 85%;
+        max-width: 700px;
+        text-align: center;
+        position: relative;
+        animation: aparecer 2s ease forwards;
+    }
+
+    @keyframes aparecer {
+        from { opacity: 0; transform: translateY(20px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    h1 {
+        color: #e63946;
+        margin-bottom: 15px;
+        font-size: 1.9em;
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-top: 10px;
+        white-space: pre-line;
+    }
+
+    .firma {
+        margin-top: 30px;
+        font-style: italic;
+        color: #e63946;
+        font-weight: bold;
+    }
+
+    /* corazones animados */
+    .corazon {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: #ff4d6d;
+        transform: rotate(45deg);
+        animation: flotar 6s linear forwards;
+        opacity: 0.8;
+        z-index: 0;
+    }
+
+    .corazon::before,
+    .corazon::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #ff4d6d;
+        border-radius: 50%;
+    }
+
+    .corazon::before { top: -10px; left: 0; }
+    .corazon::after { left: -10px; top: 0; }
+
+    @keyframes flotar {
+        0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+        100% { transform: translateY(-700px) rotate(45deg); opacity: 0; }
+    }
+
+    /* efecto de brillo */
+    .brillo {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        top: -10%;
+        left: -10%;
+        background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+        animation: brillar 6s infinite ease-in-out;
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    @keyframes brillar {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.2); }
+    }
+</style>
+</head>
+<body>
+
+<div class="carta">
+    <div class="brillo"></div>
+    <h1>Para vos, mi Piojita 💞</h1>
+    <p>
+        No sé si me van a alcanzar las palabras, pero tenía que escribirte esto.  
+        Porque desde que llegaste, todo se siente distinto.  
+        Hay algo en vos que me calma, pero al mismo tiempo me vuelve loco — de la mejor manera.  
+
+        Me acuerdo perfecto de nuestro primer beso en la plaza.  
+       el sol, la tarde tan tranquila, y vos tan cerca que el corazón me latía a mil.  
+        Fue un momento simple, pero no lo cambio por nada.  
+        Ahí entendí que lo nuestro era real, que no era un juego ni una casualidad.  
+
+        Me gusta cómo me hacés sentir, cómo con una mirada me entendés sin decir nada.  
+        Me encanta que te rías de mis boludeses, o que te enojes pero igual termines sonriendo.  
+        Es como si fueras mi lugar, mi persona favorita, el motivo por el que todo tiene sentido.  
+
+        No te prometo perfección, pero sí te prometo estar, bancarte, cuidarte y hacerte reír.  
+        Porque si hay algo que tengo claro, es que te elijo todos los días.  
+        Y mientras estés conmigo, voy a seguir demostrando lo mucho que te amo.  
+
+        Sos lo mejor que me pasó, y cada momento con vos vale más que cualquier otra cosa. 💖
+    </p>
+    <div class="firma">te amu muchisimo 💌<br> Mi Piojita ❤️</div>
+</div>
+
+<script>
+    // corazones flotando
+    function crearCorazon() {
+        const corazon = document.createElement("div");
+        corazon.classList.add("corazon");
+        document.body.appendChild(corazon);
+        corazon.style.left = Math.random() * window.innerWidth + "px";
+        corazon.style.bottom = "0px";
+        corazon.style.animationDuration = 4 + Math.random() * 3 + "s";
+        corazon.style.transform = "scale(" + (Math.random() * 0.8 + 0.4) + ")";
+        setTimeout(() => corazon.remove(), 7000);
+    }
+
+    setInterval(crearCorazon, 500);
+</script>
+
+</body>
+</html>
